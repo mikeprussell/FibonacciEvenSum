@@ -23,20 +23,26 @@ namespace FibonacciEvenSum
             //A variable to keep a running tally of even numbers in the sequence
             int fiboEvenSum = 0;
 
-            for (int i = 1; i <= 100 ; i++)
+            for (int i = 1; i <= 99999999; i++)
             {
                 n3 = n1 + n2;
                 n1 = n2;
                 n2 = n3;
 
+                Console.WriteLine($"{n3:n0} - {i}");
+
                 if (n3 % 2 == 0 && (n3 <= 4000000))
                 {
                     fiboEvenSum += n3;
-                    Console.WriteLine(fiboEvenSum);
                 }
+                else if (n3 > 99999999)
+                {
+                    i = n3;
+                }
+
             }
 
-            Console.WriteLine("The sum of the even numbers in the Fibonacci sequence is " + fiboEvenSum + ".");
+            Console.WriteLine($"The sum of the even numbers in the Fibonacci sequence is {fiboEvenSum:n0}.");
         }
     }
 }
